@@ -1,4 +1,4 @@
-class ErrorRepository {
+export default class ErrorRepository {
     constructor() {
         this.arrayError = new Map([
         [1, 'Описание ошибки № 1!'],
@@ -15,5 +15,3 @@ class ErrorRepository {
         }
     }
 }
-
-module.exports = ErrorRepository;

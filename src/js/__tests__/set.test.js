@@ -1,42 +1,46 @@
-// import { Team, Character } from '../set';
+import { Team, Character } from '../set';
 
 
-// test ("добавление игрока", () => {
-//     // const one = new Team();
-//     // const t = new Character("Silverhend");
-//     // one.add(t);
+test ("добавление игрока и преобразование методом toArray", () => {
+    const teamPlay = new Team();
+    teamPlay.add('Silver');
 
-//     // const myTeam = [
-//     //     new Character("Silverhend"),
-//     // ];
-//     // expect([...one.members]).toEqual(myTeam);
-
-//     const teamPlay = new Team();
-//     const char = teamPlay.add('Silver');
-
-//     expect(char.members).toBe('Silver');
-// });
+    expect(teamPlay.toArray()).toContain('Silver');
+});
 
 
-// test ("добавление с ошибкой", () => {
-//     const one = new Team();
-//     one.add("Silverhend");
+test ("добавление с ошибкой", () => {
+    const one = new Team();
+    one.add("Silverhend");
 
-//     expect(() => {
-//         one.add("Silverhend");}).toThrow('Игрок Silverhend уже есть в команде!');
-// });
+    expect(() => {
+        one.add("Silverhend");}).toThrow('Игрок Silverhend уже есть в команде!');
+});
 
 
-// test("проверка и преобразование toArray", () => {
-//     const one = new Team();
-//     one.addAll("Silverhend", "S", "Si", "Sil");
+test("проверка toAll() и преобразование методом toArray", () => {
+    const one = new Team();
+    one.addAll("Silverhend", "S", "Si", "Sil");
 
-//     const myTeam = [
-//         "Silverhend",
-//         "S",
-//         "Si",
-//         "Sil"
-//     ];
+    const myTeam = [
+        "Silverhend",
+        "S",
+        "Si",
+        "Sil"
+    ];
 
-//     expect(one.members).toEqual(myTeam);
-// });
+    expect(one.toArray()).toEqual(myTeam);
+});
+
+test("ошибка toAll() и преобразование методом toArray", () => {
+    const one = new Team();
+    one.addAll("Silverhend", "Si", "Si", "Sil");
+
+    const myTeam = [
+        "Silverhend",
+        "Si",
+        "Sil"
+    ];
+
+    expect(one.toArray()).toEqual(myTeam);
+});
