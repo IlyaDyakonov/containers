@@ -32,7 +32,7 @@ test("проверка toAll() и преобразование методом to
     expect(one.toArray()).toEqual(myTeam);
 });
 
-test("ошибка toAll() и преобразование методом toArray", () => {
+test("исключение в повторении toAll() и преобразование методом toArray", () => {
     const one = new Team();
     one.addAll("Silverhend", "Si", "Si", "Sil");
 

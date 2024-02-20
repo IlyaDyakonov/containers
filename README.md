@@ -1,3 +1,4 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/8vo890axph6fkefy?svg=true)](https://ci.appveyor.com/project/IlyaDyakonov/containers)
 
 
 

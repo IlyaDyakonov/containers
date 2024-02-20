@@ -10,40 +10,29 @@ export class Team {
     }
 
     add(player) {
-        if (Array.from(this.members).some(member => member.squad === player)) {
+        if (this.members.has(player)) {
             throw new Error(`Игрок ${player} уже есть в команде!`);
         } else {
-            const character = new Character(player);
-            this.members.add(character);
+            this.members.add(player);
+            const gamer = new Character(this.members);
+            return gamer;
         }
     }
+
 
     addAll (...players) {
-        for (let player of players) {
-            let playerExists = false;
-            for (let member of this.members) {
-                if (member.squad === player) {
-                    playerExists = true;
-                    break;
-                }
-            }
-            if (!playerExists) {
-                const character = new Character(player);
-                this.members.add(character);
-                }
-            }
+        for (const size of players) {
+            this.members.add(size);
+            
         }
+        const gamers = new Character(this.members);
+        return gamers;
+    }
+
 
     toArray () {
-        const arrayName = Array.from(this.members, charact => charact.squad);
-        return arrayName;
+        const p = [...this.members]
+        const gamers = new Character(p);
+        return gamers.squad;
     }
 }
-
-// module.exports = Team;
-// const one = new Team();
-// one.addAll("Silverhend", "Si", "Si", "Sil");
-// one.add("Silver");
-// one.add("Silver");
-// one.toArray();
-// console.log(one);
