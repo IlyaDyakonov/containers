@@ -1,4 +1,4 @@
-import './css/style';
+import './css/style.css';
 
 import './js/additional_map';
 import './js/map';
